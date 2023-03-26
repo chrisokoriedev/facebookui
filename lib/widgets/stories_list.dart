@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-const imageUrl = "https://scontent.fbeg1-1.fna.fbcdn.net/v/t1.0-9/37262724_665073247174922_6865706832715841536_n.jpg?_nc_cat=103&_nc_ht=scontent.fbeg1-1.fna&oh=c3a2c99bfa7637e7e21a775c642b4f18&oe=5CCAA6EE";
+const imageUrl =
+    "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60";
 
 class StoriesList extends StatefulWidget {
   @override
@@ -34,7 +35,6 @@ class _StoriesListState extends State<StoriesList> {
 }
 
 class StoryListItem extends StatefulWidget {
-  
   bool viewed;
 
   StoryListItem({super.key, required this.viewed});
@@ -46,15 +46,11 @@ class StoryListItem extends StatefulWidget {
 }
 
 class _StoryListItemState extends State<StoryListItem> {
-
   _buildBorder() {
     if (widget.viewed) {
       return null;
     } else {
-      return Border.all(
-        color: Colors.blue,
-        width: 3
-      );
+      return Border.all(color: Colors.blue, width: 3);
     }
   }
 
@@ -76,14 +72,13 @@ class _StoryListItemState extends State<StoryListItem> {
               height: 60,
               width: 60,
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: _buildBorder(),
-                image: DecorationImage(
-                  image: NetworkImage(imageUrl)
-                )
-              ),
+                  shape: BoxShape.circle,
+                  border: _buildBorder(),
+                  image: DecorationImage(image: NetworkImage(imageUrl))),
             ),
-            Container(height: 8.0,),
+            Container(
+              height: 8.0,
+            ),
             Text(
               'Abc',
               softWrap: true,
@@ -91,7 +86,9 @@ class _StoryListItemState extends State<StoryListItem> {
             ),
           ],
         ),
-        Container(width: 12.0,)
+        Container(
+          width: 12.0,
+        )
       ],
     );
   }
@@ -105,26 +102,26 @@ class AddToYourStoryButton extends StatelessWidget {
         Column(
           children: [
             Container(
-              height: 60,
-              width: 60,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.grey.shade200,
-                // borderRadius: BorderRadius.circular(5.0)
-              ),
-              child: Icon(
-                Icons.add,
-                size: 35.0,
-              )
+                height: 60,
+                width: 60,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.grey.shade200,
+                  // borderRadius: BorderRadius.circular(5.0)
+                ),
+                child: Icon(
+                  Icons.add,
+                  size: 35.0,
+                )),
+            Container(
+              height: 8.0,
             ),
-            Container(height: 8.0,),
-            Text(
-              'Your story',
-              style: _viewedStoryListItemTextStyle()
-            ),
+            Text('Your story', style: _viewedStoryListItemTextStyle()),
           ],
         ),
-        Container(width: 12.0,)
+        Container(
+          width: 12.0,
+        )
       ],
     );
   }
@@ -132,15 +129,9 @@ class AddToYourStoryButton extends StatelessWidget {
 
 _notViewedStoryListItemTextStyle() {
   return TextStyle(
-    fontSize: 12,
-    color: Colors.black,
-    fontWeight: FontWeight.bold
-  );  
+      fontSize: 12, color: Colors.black, fontWeight: FontWeight.bold);
 }
 
 _viewedStoryListItemTextStyle() {
-  return TextStyle(
-    fontSize: 12,
-    color: Colors.grey
-  );  
+  return TextStyle(fontSize: 12, color: Colors.grey);
 }
