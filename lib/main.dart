@@ -1,19 +1,62 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-import 'home_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String _timezone = 'Unknown';
+  List<String> _availableTimezones = <String>[];
+
+  @override
+  void initState() {
+    super.initState();
+    _initData();
+  }
+
+  Future<void> _initData() async {
+    try {
+      _timezone = await FlutterTimezone.getLocalTimezone();
+    } catch (e) {
+      print('Could not get the local timezone');
+    }
+    try {
+      _availableTimezones = await FlutterTimezone.getAvailableTimezones();
+      _availableTimezones.sort();
+    } catch (e) {
+      print('Could not get available timezones');
+    }
+    if (mounted) {
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Local timezone app'),
+        ),
+        body: Column(
+          children: <Widget>[
+            Text('Local timezone: $_timezone\n'),
+            Text('Available timezones:'),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _availableTimezones.length,
+                itemBuilder: (_, index) => Text(_availableTimezones[index]),
+              ),
+            )
+          ],
+        ),
       ),
-      home: HomePage(),
     );
   }
 }
