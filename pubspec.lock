@@ -60,25 +60,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_timezone:
+  intl:
     dependency: "direct main"
     description:
-      name: flutter_timezone
+      name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
-  flutter_web_plugins:
-    dependency: transitive
-    description: flutter
-    source: sdk
-    version: "0.0.0"
-  js:
-    dependency: transitive
-    description:
-      name: js
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.6.4"
+    version: "0.18.0"
   lints:
     dependency: transitive
     description:
@@ -161,6 +149,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.12"
+  timezone:
+    dependency: "direct main"
+    description:
+      name: timezone
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.1"
   vector_math:
     dependency: transitive
     description:
@@ -170,4 +165,3 @@ packages:
     version: "2.1.2"
 sdks:
   dart: ">=2.18.5 <3.0.0"
-  flutter: ">=1.12.0"
