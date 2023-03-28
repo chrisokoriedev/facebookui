@@ -30,7 +30,7 @@ class _TimezoneConverterState extends State<TimezoneConverter> {
   // This map contains the time zones for various time zones
   final Map<String, String> _timezones = {
     'UTC': 'UTC',
-    'EST': 'America/New_York',
+    'EST': 'America/Newrk',
     'JST': 'Asia/Tokyo',
   };
 
