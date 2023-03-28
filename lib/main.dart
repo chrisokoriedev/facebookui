@@ -70,7 +70,7 @@ class _TimezoneConverterState extends State<TimezoneConverter> {
               }).toList(),
             ),
             SizedBox(height: 16.0),
-          
+            Text('$_convertedTime'),
           ],
         ),
       ),
